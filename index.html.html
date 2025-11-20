@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C MATIC CONTROL LLP - Leading supplier of Pneumatic and Hydraulic products. Dealers for Festo, SMC, Janatics, and more.">
+    <title>C MATIC CONTROL LLP | Pneumatic & Hydraulic Solutions</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#FF0000',
+                            blue: '#002D72',
+                            dark: '#0a192f',
+                        }
+                    },
+                    backgroundImage: {
+                        'brand-gradient': 'linear-gradient(90deg, #002D72 0%, #FF0000 100%)',
+                        'brand-gradient-hover': 'linear-gradient(90deg, #FF0000 0%, #002D72 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #002D72; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF0000; 
+        }
+
+        /* Mega Menu Styles */
+        .group:hover .mega-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Infinite Scroll Animation for Logos */
+        .logo-slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .logo-slide-track {
+            display: flex;
+            width: calc(200px * 24); /* Assumes roughly 12 logos duplicated */
+            animation: scroll 30s linear infinite;
+        }
+        .logo-slide {
+            width: 200px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-slide img {
+            max-width: 100%;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+        .logo-slide img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-200px * 12)); }
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(to right, #002D72, #FF0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Underline Animation */
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #002D72, #FF0000);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* Product Card Hover */
+        .product-card:hover .card-overlay {
+            opacity: 1;
+        }
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Dynamic Section transitions */
+        .section-hidden {
+            display: none;
+        }
+        .section-visible {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Breadcrumb Styles */
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: "/";
+            padding: 0 0.5rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+
+    <!-- === HEADER === -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" onclick="showSection('home')" class="flex items-center gap-2 group">
+                    <!-- PLACEHOLDER LOGO: Replace src with your local path -->
+                    <img id="brand-logo" src="C:\Users\vaibhav chavan\Downloads\CMCL- LOGO.png" alt="C MATIC CONTROL LLP" class="h-12 md:h-16 object-contain">
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" onclick="showSection('home')" class="font-medium text-gray-700 hover:text-brand-blue hover-underline-animation">Home</a>
+                    <a href="#about" onclick="showSection('home')" class="font-medium text-gray-700 hover:text-brand-blue hover-underline-animation">About Us</a>
+                    
+                    <!-- Mega Menu Dropdown -->
+                    <div class="group relative py-4">
+                        <a href="#" onclick="showSection('products-main')" class="font-medium text-gray-700 hover:text-brand-blue hover-underline-animation flex items-center">
+                            Our Product Range <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </a>
+                        <div class="mega-menu absolute left-1/2 transform -translate-x-1/2 top-full w-[600px] bg-white shadow-2xl rounded-lg p-6 opacity-0 invisible transition-all duration-300 border-t-4 border-brand-red grid grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-brand-blue font-bold mb-3 border-b pb-2">Pneumatic Products</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li><a href="#" onclick="showCategoryPage(1)" class="hover:text-brand-red flex items-center"><i data-lucide="wind" class="w-3 h-3 mr-2"></i> Cylinders</a></li>
+                                    <li><a href="#" onclick="showCategoryPage(2)" class="hover:text-brand-red flex items-center"><i data-lucide="zap" class="w-3 h-3 mr-2"></i> Solenoid Valves</a></li>
+                                    <li><a href="#" onclick="showCategoryPage(3)" class="hover:text-brand-red flex items-center"><i data-lucide="filter" class="w-3 h-3 mr-2"></i> FRL Units</a></li>
+                                    <li><a href="#" onclick="showPneumaticGrid()" class="text-brand-red font-semibold mt-2 inline-block">View All Pneumatics →</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-brand-blue font-bold mb-3 border-b pb-2">Hydraulic Products</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li><a href="#" onclick="showSection('products-hydraulic')" class="hover:text-brand-red flex items-center"><i data-lucide="activity" class="w-3 h-3 mr-2"></i> Power Packs</a></li>
+                                    <li><a href="#" onclick="showSection('products-hydraulic')" class="hover:text-brand-red flex items-center"><i data-lucide="cylinder" class="w-3 h-3 mr-2"></i> Cylinders</a></li>
+                                    <li><a href="#" onclick="showSection('products-hydraulic')" class="text-brand-red font-semibold mt-2 inline-block">View All Hydraulics →</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#services" onclick="showSection('home')" class="font-medium text-gray-700 hover:text-brand-blue hover-underline-animation">Services</a>
+                    <a href="#contact" onclick="showSection('home')" class="px-6 py-2 rounded-full bg-brand-gradient text-white font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">Contact Us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-brand-blue focus:outline-none" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg absolute w-full">
+            <a href="#" onclick="showSection('home'); toggleMobileMenu()" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="#about" onclick="showSection('home'); toggleMobileMenu()" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">About Us</a>
+            <a href="#" onclick="showSection('products-main'); toggleMobileMenu()" class="block px-6 py-3 text-gray-700 hover:bg-gray-100">Products</a>
+            <a href="#contact" onclick="showSection('home'); toggleMobileMenu()" class="block px-6 py-3 text-brand-red font-bold">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- === DYNAMIC CONTENT CONTAINER === -->
+    <main class="pt-[80px]">
+
+        <!-- ================= HOME PAGE SECTION ================= -->
+        <div id="home-section" class="section-visible">
+            
+            <!-- Hero Video Banner -->
+            <div class="relative w-full h-[85vh] overflow-hidden bg-gray-900">
+                <!-- PLACEHOLDER VIDEO: Replace src with your local path -->
+                <video id="hero-video" autoplay muted loop class="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 opacity-60 object-cover">
+                    <source src="C:\Users\vaibhav chavan\Downloads\C MATIC CONTROL - Video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/40 flex items-center">
+                    <div class="container mx-auto px-6">
+                        <div class="max-w-4xl fade-in-up">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="h-1 w-12 bg-brand-red"></div>
+                                <h2 class="text-brand-red text-lg md:text-xl font-bold tracking-widest uppercase">The Future of Industrial Motion</h2>
+                            </div>
+                            <h1 class="text-5xl md:text-7xl font-heading font-bold text-white mb-6 leading-tight">
+                                Mastering <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">Pneumatic</span> & <br>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-red">Hydraulic</span> Dynamics
+                            </h1>
+                            <p class="text-gray-200 text-xl mb-10 max-w-2xl font-light leading-relaxed">
+                                We deliver world-class automation components and engineered solutions. 
+                                Your strategic partner for operational excellence, powering industries with precision and reliability.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#" onclick="showSection('products-main')" class="px-10 py-4 rounded-sm bg-brand-gradient text-white font-bold text-lg shadow-2xl hover:shadow-brand-red/50 transition-all hover:-translate-y-1 uppercase tracking-wide">
+                                    Explore Catalog
+                                </a>
+                                <a href="#contact" class="px-10 py-4 rounded-sm border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-brand-blue transition-all uppercase tracking-wide">
+                                    Get a Quote
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Slider (Existing) -->
+            <div class="bg-white py-10 border-b border-gray-200 shadow-sm relative z-20">
+                <div class="container mx-auto mb-6">
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="h-px w-12 bg-gray-300"></div>
+                        <p class="text-center text-gray-500 text-sm font-bold tracking-[0.2em] uppercase">Authorized Dealers For Global Leaders</p>
+                        <div class="h-px w-12 bg-gray-300"></div>
+                    </div>
+                </div>
+                <div class="logo-slider">
+                    <div class="logo-slide-track">
+                        <!-- BRAND LOGOS START: Replace these src attributes with local paths -->
+                        <!-- Note: Duplicated to create seamless loop -->
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Autonics Logo.png" alt="Autonics"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Hiwin Logo.png" alt="Hiwin"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Yuken Logo.png" alt="Yuken"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Norgren Logo.png" alt="Norgren"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Bosch Rexroth Logo.png" alt="Bosch Rexroth"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Aventics Logo.png" alt="Aventics"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Camozzi Logo.png" alt="Camozzi"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Parker Logo.png" alt="Parker"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Mindman Logo.png" alt="Mindman"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Janatics Logo.png" alt="Janatics"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\SMC Logo.png" alt="SMC"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Festo Logo.png" alt="Festo"></div>
+                        <!-- Duplicates for Loop -->
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Autonics Logo.png" alt="Autonics"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Hiwin Logo.png" alt="Hiwin"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Yuken Logo.png" alt="Yuken"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Norgren Logo.png" alt="Norgren"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Bosch Rexroth Logo.png" alt="Bosch Rexroth"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Aventics Logo.png" alt="Aventics"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Camozzi Logo.png" alt="Camozzi"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Parker Logo.png" alt="Parker"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Mindman Logo.png" alt="Mindman"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Janatics Logo.png" alt="Janatics"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\SMC Logo.png" alt="SMC"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Festo Logo.png" alt="Festo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW: Client Slider (Added as requested) -->
+            <div class="bg-gray-50 py-10 border-b border-gray-200 shadow-inner relative z-10">
+                <div class="container mx-auto mb-6">
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="h-px w-12 bg-brand-blue"></div>
+                        <p class="text-center text-brand-blue text-sm font-bold tracking-[0.2em] uppercase">Our Valued Clients</p>
+                        <div class="h-px w-12 bg-brand-blue"></div>
+                    </div>
+                </div>
+                <div class="logo-slider">
+                    <div class="logo-slide-track">
+                        <!-- CLIENT LOGOS START: Duplicated for seamless loop -->
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\hutamaki logo.png" alt="Hutamaki"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\SMI Jindal Logo.png" alt="SMI Jindal"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Godrej Logo.png" alt="Godrej"></div>
+                        <!-- Duplicates -->
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\hutamaki logo.png" alt="Hutamaki"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\SMI Jindal Logo.png" alt="SMI Jindal"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Godrej Logo.png" alt="Godrej"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\hutamaki logo.png" alt="Hutamaki"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\SMI Jindal Logo.png" alt="SMI Jindal"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Godrej Logo.png" alt="Godrej"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\hutamaki logo.png" alt="Hutamaki"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\SMI Jindal Logo.png" alt="SMI Jindal"></div>
+                        <div class="logo-slide"><img src="C:\Users\vaibhav chavan\Downloads\Brands Images\Godrej Logo.png" alt="Godrej"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Us -->
+            <section id="about" class="py-24 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row gap-16 items-center">
+                        <div class="w-full md:w-1/2 relative group">
+                            <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-red/10 rounded-tl-[3rem] z-0 transition-all group-hover:scale-110"></div>
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-blue/10 rounded-br-[3rem] z-0 transition-all group-hover:scale-110"></div>
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="About C MATIC" class="rounded-sm shadow-2xl relative z-10 w-full object-cover h-[550px] transition-transform duration-700 hover:scale-[1.02]">
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="h-px w-8 bg-brand-red"></span>
+                                <h3 class="text-brand-red font-bold uppercase tracking-widest text-sm">Who We Are</h3>
+                            </div>
+                            <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-8 leading-tight">
+                                Redefining <span class="text-gradient">Industrial Reliability</span> Since 2019
+                            </h2>
+                            
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                                C MATIC CONTROL LLP stands at the forefront of the fluid power industry. We are not just suppliers; we are engineers of efficiency. 
+                                As authorized distributors for global giants like <span class="font-bold text-brand-blue">FESTO, SMC, and NORGREN</span>, we bridge the gap between international innovation and local industrial needs.
+                            </p>
+                            <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                                From high-precision pharmaceuticals to heavy-duty iron & steel, our components drive the machinery that powers the nation.
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-6 my-8">
+                                <div class="p-6 bg-gray-50 border-l-4 border-brand-blue hover:bg-brand-blue/5 transition-all">
+                                    <h4 class="font-bold text-brand-blue text-lg mb-2">Diverse Expertise</h4>
+                                    <p class="text-sm text-gray-600">Serving Automotive, Pharma, Robotics & Textiles.</p>
+                                </div>
+                                <div class="p-6 bg-gray-50 border-l-4 border-brand-red hover:bg-brand-red/5 transition-all">
+                                    <h4 class="font-bold text-brand-red text-lg mb-2">Uncompromised Quality</h4>
+                                    <p class="text-sm text-gray-600">100% Genuine components with manufacturer warranties.</p>
+                                </div>
+                            </div>
+                            
+                            <a href="#contact" class="inline-flex items-center text-brand-blue font-bold hover:text-brand-red transition-colors text-lg group">
+                                Discover Our Corporate Profile 
+                                <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Services Preview -->
+            <section id="services" class="py-24 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-20">
+                        <h3 class="text-brand-blue font-bold uppercase tracking-widest text-sm mb-3">Our Expertise</h3>
+                        <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">Engineering Solutions</h2>
+                        <div class="h-1.5 w-24 bg-brand-gradient mx-auto rounded-full"></div>
+                        <p class="mt-6 text-gray-600 text-lg">We go beyond product supply to offer comprehensive lifecycle support for your industrial assets.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <!-- Service 1 -->
+                        <div class="bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-brand-blue group">
+                            <div class="w-16 h-16 bg-brand-blue/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                                <i data-lucide="settings" class="w-8 h-8 text-brand-blue group-hover:text-white transition-colors"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900">System Architecture</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Custom design and fabrication of Pneumatic & Hydraulic circuits tailored to your specific machinery KPIs.
+                            </p>
+                            <span class="text-brand-blue font-semibold text-sm uppercase tracking-wide">Learn More</span>
+                        </div>
+                        
+                        <!-- Service 2 -->
+                        <div class="bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-brand-red group">
+                            <div class="w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-brand-red group-hover:text-white transition-colors">
+                                <i data-lucide="wrench" class="w-8 h-8 text-brand-red group-hover:text-white transition-colors"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900">Maintenance & Overhaul</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Specialized Ball Screw repair, hydraulic cylinder refurbishment, and preventative maintenance power packs.
+                            </p>
+                            <span class="text-brand-red font-semibold text-sm uppercase tracking-wide">View Services</span>
+                        </div>
+                        
+                        <!-- Service 3 -->
+                        <div class="bg-white p-10 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-brand-blue group">
+                            <div class="w-16 h-16 bg-brand-blue/10 rounded-full flex items-center justify-center mb-8 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                                <i data-lucide="cpu" class="w-8 h-8 text-brand-blue group-hover:text-white transition-colors"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900">Turnkey Automation</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                End-to-end industrial automation consulting, from sensor integration to complex PLC logic development.
+                            </p>
+                            <span class="text-brand-blue font-semibold text-sm uppercase tracking-wide">Consult Experts</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= LEVEL 1: PRODUCTS MAIN (SPLIT SCREEN) ================= -->
+        <div id="products-main" class="section-hidden min-h-screen bg-gray-100 pt-10 pb-20">
+            <div class="container mx-auto px-6">
+                <!-- Breadcrumb -->
+                <nav class="flex mb-8" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                        <li class="inline-flex items-center"><a href="#" onclick="showSection('home')" class="hover:text-brand-blue">Home</a></li>
+                        <li class="breadcrumb-item"><span class="text-brand-blue font-bold">Products</span></li>
+                    </ol>
+                </nav>
+
+                <h2 class="text-4xl font-heading font-bold text-center mb-12">Select Product Category</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-[60vh]">
+                    <!-- Pneumatic Choice -->
+                    <div onclick="showPneumaticGrid()" class="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer">
+                        <div class="absolute inset-0 bg-brand-blue/80 group-hover:bg-brand-blue/90 transition-all z-10 flex flex-col items-center justify-center text-white p-10">
+                            <i data-lucide="wind" class="w-24 h-24 mb-6 group-hover:scale-110 transition-transform duration-500"></i>
+                            <h3 class="text-4xl font-bold mb-4">Pneumatic Products</h3>
+                            <p class="text-center text-gray-200 mb-8 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                Cylinders, Valves, FRL Units, Fittings, and Actuators.
+                            </p>
+                            <span class="px-6 py-2 border border-white rounded-full group-hover:bg-white group-hover:text-brand-blue transition-colors">Explore Range</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Pneumatic">
+                    </div>
+
+                    <!-- Hydraulic Choice -->
+                    <div onclick="showSection('products-hydraulic')" class="group relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer">
+                        <div class="absolute inset-0 bg-brand-red/80 group-hover:bg-brand-red/90 transition-all z-10 flex flex-col items-center justify-center text-white p-10">
+                            <i data-lucide="droplet" class="w-24 h-24 mb-6 group-hover:scale-110 transition-transform duration-500"></i>
+                            <h3 class="text-4xl font-bold mb-4">Hydraulic Products</h3>
+                            <p class="text-center text-gray-200 mb-8 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                Power Packs, Cylinders, Presses, and Heavy Lifting.
+                            </p>
+                            <span class="px-6 py-2 border border-white rounded-full group-hover:bg-white group-hover:text-brand-red transition-colors">Explore Range</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Hydraulic">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= PNEUMATIC GRID (List of 12 Categories) ================= -->
+        <div id="products-pneumatic" class="section-hidden py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <!-- Breadcrumb -->
+                <nav class="flex mb-8" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                        <li class="inline-flex items-center"><a href="#" onclick="showSection('home')" class="hover:text-brand-blue">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" onclick="showSection('products-main')" class="hover:text-brand-blue">Products</a></li>
+                        <li class="breadcrumb-item"><span class="text-brand-blue font-bold">Pneumatic</span></li>
+                    </ol>
+                </nav>
+
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue">Pneumatic Range</h2>
+                </div>
+
+                <div id="pneumatic-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Items injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= HYDRAULIC GRID (Placeholder) ================= -->
+        <div id="products-hydraulic" class="section-hidden py-12 bg-white">
+            <div class="container mx-auto px-6">
+                <!-- Breadcrumb -->
+                <nav class="flex mb-8" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                        <li class="inline-flex items-center"><a href="#" onclick="showSection('home')" class="hover:text-brand-blue">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" onclick="showSection('products-main')" class="hover:text-brand-blue">Products</a></li>
+                        <li class="breadcrumb-item"><span class="text-brand-red font-bold">Hydraulic</span></li>
+                    </ol>
+                </nav>
+
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-heading font-bold text-brand-red">Hydraulic Range</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                     <div class="bg-gray-100 p-8 rounded-xl text-center">
+                         <i data-lucide="activity" class="w-16 h-16 text-brand-red mx-auto mb-4"></i>
+                         <h3 class="text-xl font-bold">Hydraulic Power Packs</h3>
+                         <p class="text-gray-500 mt-2">Detailed specifications coming soon.</p>
+                     </div>
+                     <div class="bg-gray-100 p-8 rounded-xl text-center">
+                         <i data-lucide="cylinder" class="w-16 h-16 text-brand-red mx-auto mb-4"></i>
+                         <h3 class="text-xl font-bold">Hydraulic Cylinders</h3>
+                         <p class="text-gray-500 mt-2">Detailed specifications coming soon.</p>
+                     </div>
+                     <div class="bg-gray-100 p-8 rounded-xl text-center">
+                         <i data-lucide="layers" class="w-16 h-16 text-brand-red mx-auto mb-4"></i>
+                         <h3 class="text-xl font-bold">Hydro Pneumatic Press</h3>
+                         <p class="text-gray-500 mt-2">Detailed specifications coming soon.</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= LEVEL 2: PRODUCT CATEGORY PAGE (The "Product Page") ================= -->
+        <!-- Shows banner, intro, and grid of TYPES -->
+        <div id="category-page" class="section-hidden pb-20 bg-white">
+            <div class="container mx-auto px-6 pt-10">
+                <!-- Breadcrumb -->
+                <nav class="flex mb-6" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                        <li class="inline-flex items-center"><a href="#" onclick="showSection('home')" class="hover:text-brand-blue">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" onclick="showPneumaticGrid()" class="hover:text-brand-blue">Pneumatic</a></li>
+                        <li class="breadcrumb-item"><span id="cat-breadcrumb" class="text-brand-blue font-bold">Category</span></li>
+                    </ol>
+                </nav>
+
+                <!-- Header Info -->
+                <div class="mb-12 text-center max-w-4xl mx-auto">
+                    <h1 id="cat-title" class="text-4xl md:text-5xl font-heading font-bold text-brand-blue mb-4">Product Category Title</h1>
+                    <div class="h-1 w-24 bg-brand-gradient mx-auto mb-6"></div>
+                    <p id="cat-desc" class="text-lg text-gray-600">Category Description</p>
+                </div>
+
+                <!-- Category Banner Image -->
+                <div class="w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-12 shadow-lg relative">
+                    <img id="cat-banner" src="" alt="Banner" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                        <h2 class="text-white text-2xl font-bold">Explore Our Range</h2>
+                    </div>
+                </div>
+
+                <!-- TYPES GRID -->
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-brand-red pl-3">Available Types</h3>
+                <div id="types-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= LEVEL 3: SPECIFIC TYPE DETAIL PAGE ================= -->
+        <div id="type-detail-page" class="section-hidden pb-20 bg-gray-50">
+            <div class="container mx-auto px-6 pt-10">
+                <!-- Breadcrumb -->
+                <nav class="flex mb-6" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm text-gray-500">
+                        <li class="inline-flex items-center"><a href="#" onclick="showSection('home')" class="hover:text-brand-blue">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" onclick="showPneumaticGrid()" class="hover:text-brand-blue">Pneumatic</a></li>
+                        <li class="breadcrumb-item"><a href="#" id="type-back-link" class="hover:text-brand-blue">Category</a></li>
+                        <li class="breadcrumb-item"><span id="type-breadcrumb" class="text-brand-red font-bold">Type Name</span></li>
+                    </ol>
+                </nav>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <!-- Top Section with Image and Key Info -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="h-[400px] lg:h-auto bg-gray-200 relative group">
+                            <img id="type-img" src="" alt="Type" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="p-8 lg:p-12 flex flex-col justify-center">
+                            <h1 id="type-title" class="text-3xl md:text-4xl font-heading font-bold text-brand-blue mb-4">Single Acting Cylinder</h1>
+                            <div class="h-1 w-20 bg-brand-red mb-6"></div>
+                            
+                            <p id="type-desc" class="text-gray-600 text-lg mb-8 leading-relaxed">
+                                Full SEO description goes here. This describes the product in detail, its functionality, materials, and primary use cases in the industry.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#contact" class="px-8 py-3 bg-brand-gradient text-white font-bold rounded shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 flex items-center">
+                                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i> Request Quote
+                                </a>
+                                <button class="px-8 py-3 border-2 border-brand-blue text-brand-blue font-bold rounded hover:bg-brand-blue hover:text-white transition-colors flex items-center">
+                                    <i data-lucide="download" class="w-5 h-5 mr-2"></i> Download Brochure
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Tabs/Details -->
+                    <div class="p-8 lg:p-12 border-t border-gray-100">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <!-- Technical Features -->
+                            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <h3 class="text-xl font-bold text-brand-blue mb-4 flex items-center"><i data-lucide="settings" class="w-5 h-5 mr-2"></i> Technical Features</h3>
+                                <ul id="type-features" class="space-y-2 text-sm text-gray-600">
+                                    <!-- Filled by JS -->
+                                </ul>
+                            </div>
+
+                            <!-- Applications -->
+                            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <h3 class="text-xl font-bold text-brand-red mb-4 flex items-center"><i data-lucide="briefcase" class="w-5 h-5 mr-2"></i> Applications</h3>
+                                <ul id="type-apps" class="space-y-2 text-sm text-gray-600">
+                                    <!-- Filled by JS -->
+                                </ul>
+                            </div>
+
+                            <!-- Benefits -->
+                            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <h3 class="text-xl font-bold text-green-600 mb-4 flex items-center"><i data-lucide="check-circle" class="w-5 h-5 mr-2"></i> Key Benefits</h3>
+                                <ul id="type-benefits" class="space-y-2 text-sm text-gray-600">
+                                    <!-- Filled by JS -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact" class="py-20 bg-brand-dark text-white relative overflow-hidden">
+            <!-- ... existing contact code ... -->
+             <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-blue/20 skew-x-12 transform translate-x-20"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <h3 class="text-brand-red font-bold uppercase tracking-wider mb-2">Get In Touch</h3>
+                        <h2 class="text-4xl font-heading font-bold mb-6">Contact C MATIC CONTROL</h2>
+                        <p class="text-gray-400 mb-8 text-lg">
+                            Ready to optimize your industrial systems? Our team of experts is just a message away.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-brand-blue p-3 rounded-lg mr-4">
+                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-xl">Visit Us</h4>
+                                    <p class="text-gray-300">C-26, Adke Compound, L.B.S Marg,<br>Surya Nagar, Vikhroli (W),<br>Mumbai - 400083, India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-brand-red p-3 rounded-lg mr-4">
+                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-xl">Call Us</h4>
+                                    <p class="text-gray-300 hover:text-brand-red transition-colors"><a href="tel:+919773087002">+91 97730 87002</a></p>
+                                    <p class="text-gray-300 hover:text-brand-red transition-colors"><a href="tel:+919773087005">+91 97730 87005</a></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="bg-gray-700 p-3 rounded-lg mr-4">
+                                    <i data-lucide="mail" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-xl">Email Us</h4>
+                                    <p class="text-gray-300 hover:text-brand-blue transition-colors">cmaticcontrol19@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-gray-800 p-8 rounded-xl shadow-2xl">
+                        <h3 class="text-2xl font-bold mb-6 text-brand-blue">Send Inquiry</h3>
+                        <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input type="text" placeholder="Name" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-blue" required>
+                                <input type="text" placeholder="Phone" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-blue" required>
+                            </div>
+                            <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-blue" required>
+                            <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-blue">
+                                <option>Interested In...</option>
+                                <option>Pneumatic Products</option>
+                                <option>Hydraulic Products</option>
+                                <option>Services/Repair</option>
+                            </select>
+                            <textarea rows="4" placeholder="Message / Requirement" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-blue"></textarea>
+                            <button type="submit" class="w-full py-4 bg-brand-gradient text-white font-bold rounded shadow-lg hover:shadow-xl transition-transform hover:scale-[1.02]">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Optional Map Placeholder -->
+                <div class="mt-16 w-full h-64 rounded-xl overflow-hidden shadow-lg">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.955633184827!2d72.9254!3d19.1098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzM1LjMiTiA3MsKwNTUnMzEuNCJF!5e0!3m2!1sen!2sin!4v1632999999999!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t border-gray-800">
+        <!-- ... existing footer code ... -->
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-heading font-bold mb-4 text-white">C MATIC <span class="text-brand-red">CONTROL</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Specializing in supplying, distributing, exporting, and trading high-quality pneumatic and hydraulic components since 2019.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-brand-blue"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-red"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-brand-red inline-block pb-1">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" onclick="showSection('home')" class="hover:text-brand-red transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-red transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-brand-red transition-colors">Services</a></li>
+                        <li><a href="#contact" class="hover:text-brand-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 border-b border-brand-blue inline-block pb-1">Products</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" onclick="showCategoryPage(1)" class="hover:text-brand-blue transition-colors">Pneumatic Cylinders</a></li>
+                        <li><a href="#" onclick="showCategoryPage(2)" class="hover:text-brand-blue transition-colors">Solenoid Valves</a></li>
+                        <li><a href="#" onclick="showCategoryPage(3)" class="hover:text-brand-blue transition-colors">FRL Units</a></li>
+                        <li><a href="#" onclick="showSection('products-hydraulic')" class="hover:text-brand-blue transition-colors">Hydraulic Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <p class="text-gray-400 text-sm mb-2"><i data-lucide="phone" class="w-3 h-3 inline mr-2"></i> +91 97730 87002</p>
+                    <p class="text-gray-400 text-sm mb-2"><i data-lucide="mail" class="w-3 h-3 inline mr-2"></i> cmaticcontrol19@gmail.com</p>
+                    <p class="text-gray-400 text-sm"><i data-lucide="map-pin" class="w-3 h-3 inline mr-2"></i> Mumbai, India</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 C MATIC CONTROL LLP. All Rights Reserved. Designed with precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === JAVASCRIPT LOGIC === -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // === DATA STRUCTURE ===
+        // Helper to generate placeholder image path
+        const getImgPath = (prod, type) => {
+            const safeProd = prod.toLowerCase().replace(/ /g, '-');
+            const safeType = type.toLowerCase().replace(/ /g, '-');
+            // Using placeholder service for demo, but structured as requested
+            // Real path would be: `/images/products/${safeProd}/${safeType}.png`
+            return `https://via.placeholder.com/600x400/002D72/FFFFFF?text=${type.replace(/ /g,'+')}`; 
+        };
+
+        // Sub-Type Generators (Mock Data to support hierarchy)
+        const createTypes = (productName, typeList) => {
+            return typeList.map((type, index) => ({
+                id: `${productName.toLowerCase().replace(/ /g,'-')}-${index}`,
+                name: type,
+                img: getImgPath(productName, type),
+                summary: `High-performance ${type} for industrial applications.`,
+                fullDesc: `C MATIC CONTROL offers premium quality ${type} ${productName}. Engineered for durability and precision, these components are essential for modern automation systems. They are built with high-grade materials to withstand harsh environments and ensure long operational life.`,
+                features: [
+                    "High corrosion resistance",
+                    "ISO Standard compliant",
+                    "Low friction seals",
+                    "Compact design",
+                    "Wide temperature range"
+                ],
+                applications: [
+                    "Packaging Machinery",
+                    "Automotive Assembly",
+                    "Material Handling",
+                    "Food & Beverage Processing"
+                ],
+                benefits: [
+                    "Reduced maintenance costs",
+                    "Increased system efficiency",
+                    "Longer service life",
+                    "Easy installation"
+                ]
+            }));
+        };
+
+        // Main Product Data
+        const pneumaticProducts = [
+            {
+                id: 1,
+                title: "Pneumatic Cylinders",
+                desc: "Our range of Pneumatic Cylinders is engineered for linear motion applications across automation industries. Compliant with ISO standards, these cylinders offer high durability.",
+                image: "https://images.unsplash.com/photo-1580982186276-0159b0852249?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Pneumatic Cylinders", ["Single Acting", "Double Acting", "Compact", "Rodless", "Guided", "ISO Standard", "Rotary", "Tie Rod Cylinder"])
+            },
+            {
+                id: 2,
+                title: "Solenoid Valves",
+                desc: "High-response Solenoid Valves designed for the efficient control of air flow in pneumatic systems.",
+                image: "https://images.unsplash.com/photo-1605515298946-d062f2e98d2f?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Solenoid Valves", ["2/2 Way", "3/2 Way", "5/2 Way", "5/3 Way", "Pilot Operated", "Direct Acting", "High-Pressure"])
+            },
+            {
+                id: 3,
+                title: "FRL Units",
+                desc: "Protect your downstream equipment with our premium FRL (Filter, Regulator, Lubricator) units.",
+                image: "https://images.unsplash.com/photo-1622042847706-629971e03e52?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("FRL Units", ["Air Filter", "Air Regulator", "Air Lubricator", "FR Combo", "FRL Combo"])
+            },
+            {
+                id: 4,
+                title: "Pneumatic Fittings",
+                desc: "Leak-proof and easy-to-install Pneumatic Fittings available in composite, brass, and stainless steel.",
+                image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Pneumatic Fittings", ["Push-in", "Stainless Steel", "Brass", "Bulkhead", "Elbow", "Reducer"])
+            },
+            {
+                id: 5,
+                title: "PU & Nylon Tubes",
+                desc: "Flexible and durable tubing solutions for compressed air and fluids.",
+                image: "https://plus.unsplash.com/premium_photo-1682144814274-458083e32951?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("PU & Nylon Tubes", ["PU Tube", "Nylon Tube", "Braided PU", "High-Pressure Nylon"])
+            },
+            {
+                id: 6,
+                title: "Air Bellows",
+                desc: "Air Bellows and Air Springs provide vibration isolation and actuation in heavy-duty machinery.",
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Air Bellows", ["Single Convolution", "Double Convolution", "Triple Convolution", "Custom"])
+            },
+            {
+                id: 7,
+                title: "Manual & Mechanical Valves",
+                desc: "Rugged manual and mechanical valves for direct operator control or limit switch sensing.",
+                image: "https://images.unsplash.com/photo-1616353687468-043be9a8d11f?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Manual Valves", ["Hand Lever", "Foot Pedal", "Push Button", "Roller Lever", "Shuttle", "Quick Exhaust", "Flow Control"])
+            },
+            {
+                id: 8,
+                title: "Air Preparation Accessories",
+                desc: "Essential accessories to optimize your pneumatic circuit.",
+                image: "https://images.unsplash.com/photo-1517056419767-941a62663535?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Air Prep Accessories", ["Pressure Gauges", "Silencers", "Manifolds", "Speed Controllers"])
+            },
+            {
+                id: 9,
+                title: "Pneumatic Grippers",
+                desc: "Precision grippers for pick-and-place operations in robotics and automation.",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Pneumatic Grippers", ["Parallel", "Angular", "Three-Jaw"])
+            },
+            {
+                id: 10,
+                title: "Pneumatic Actuators",
+                desc: "Convert compressed air energy into motion with our high-torque pneumatic actuators.",
+                image: "https://images.unsplash.com/photo-1532187643603-ba119ca05f36?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Pneumatic Actuators", ["Linear", "Rotary", "Diaphragm"])
+            },
+            {
+                id: 11,
+                title: "Air Compressors",
+                desc: "The heart of any pneumatic system. Efficient air compressors for all needs.",
+                image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Air Compressors", ["Reciprocating", "Screw", "Oil-Free", "High-Pressure"])
+            },
+            {
+                id: 12,
+                title: "Pneumatic Accessories",
+                desc: "Shop floor accessories including blow guns, hose reels, and couplers.",
+                image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=600&q=80",
+                types: createTypes("Accessories", ["Air Blow Gun", "Pneumatic Tools", "Hose Reels", "Quick Couplers", "One-Touch Couplers"])
+            }
+        ];
+
+        // === VIEW HANDLING FUNCTIONS ===
+
+        function hideAllSections() {
+            const sections = ['home-section', 'products-main', 'products-pneumatic', 'products-hydraulic', 'category-page', 'type-detail-page'];
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.classList.remove('section-visible');
+                    el.classList.add('section-hidden');
+                }
+            });
+            // Reset Scroll
+            window.scrollTo(0, 0);
+        }
+
+        function showSection(sectionId) {
+            hideAllSections();
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.classList.remove('section-hidden');
+                el.classList.add('section-visible');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render Level 1: Pneumatic Grid (Main Categories)
+        function generatePneumaticCards() {
+            const container = document.getElementById('pneumatic-grid-container');
+            container.innerHTML = ''; 
+
+            pneumaticProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "product-card bg-white rounded-xl shadow-md overflow-hidden group cursor-pointer border hover:border-brand-blue transition-all";
+                card.onclick = () => showCategoryPage(product.id); // Clicking opens Level 2
+                
+                card.innerHTML = `
+                    <div class="relative h-48 overflow-hidden bg-gray-100">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover transition-transform duration-500">
+                        <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 transition-opacity duration-300 z-20">
+                            <span class="text-white font-bold border border-white px-4 py-2 rounded-full">View Types</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold text-gray-800 group-hover:text-brand-blue transition-colors mb-2">${product.title}</h3>
+                        <p class="text-sm text-gray-500 line-clamp-2">${product.desc}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function showPneumaticGrid() {
+            generatePneumaticCards();
+            showSection('products-pneumatic');
+        }
+
+        // Render Level 2: Category Page (Grid of Specific Types)
+        function showCategoryPage(categoryId) {
+            const category = pneumaticProducts.find(p => p.id === categoryId);
+            if (!category) return;
+
+            // Set Header Info
+            document.getElementById('cat-title').innerText = category.title;
+            document.getElementById('cat-desc').innerText = category.desc;
+            document.getElementById('cat-banner').src = category.image;
+            document.getElementById('cat-breadcrumb').innerText = category.title;
+
+            // Generate Types Grid
+            const grid = document.getElementById('types-grid');
+            grid.innerHTML = '';
+
+            category.types.forEach(type => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-brand-red transition-all duration-300 p-4 flex flex-col";
+                
+                card.innerHTML = `
+                    <div class="h-48 bg-gray-100 rounded-lg overflow-hidden mb-4">
+                        <img src="${type.img}" alt="${type.name}" class="w-full h-full object-cover hover:scale-105 transition-transform">
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-blue mb-2">${type.name}</h4>
+                    <p class="text-sm text-gray-600 mb-4 flex-grow">${type.summary}</p>
+                    <button onclick="showTypeDetail('${category.id}', '${type.id}')" class="w-full py-2 border border-brand-blue text-brand-blue font-semibold rounded hover:bg-brand-blue hover:text-white transition-colors">
+                        View Details
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+
+            showSection('category-page');
+        }
+
+        // Render Level 3: Type Detail Page
+        function showTypeDetail(catId, typeId) {
+            // Find Data
+            const category = pneumaticProducts.find(p => p.id == catId); // Loose equality for string/int mix
+            if (!category) return;
+            const typeData = category.types.find(t => t.id === typeId);
+            if (!typeData) return;
+
+            // Update UI
+            document.getElementById('type-title').innerText = typeData.name;
+            document.getElementById('type-desc').innerText = typeData.fullDesc;
+            document.getElementById('type-img').src = typeData.img;
+            
+            // Update Breadcrumbs
+            document.getElementById('type-back-link').innerText = category.title;
+            document.getElementById('type-back-link').onclick = () => showCategoryPage(category.id);
+            document.getElementById('type-breadcrumb').innerText = typeData.name;
+
+            // Update Lists
+            const fillList = (id, items) => {
+                const list = document.getElementById(id);
+                list.innerHTML = items.map(item => `<li class="flex items-start"><span class="mr-2 text-brand-red">•</span>${item}</li>`).join('');
+            };
+
+            fillList('type-features', typeData.features);
+            fillList('type-apps', typeData.applications);
+            fillList('type-benefits', typeData.benefits);
+
+            showSection('type-detail-page');
+        }
+        
+        // Init grid on load so it is populated in background
+        generatePneumaticCards();
+    </script>
+</body>
+</html>
